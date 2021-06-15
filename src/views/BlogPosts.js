@@ -1,6 +1,9 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
+import React, { useState, useEffect } from 'react';
+import classnames from 'classnames';
+import axios from '../axios';
+import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
 
-import React from "react";
 import {
   Container,
   Row,
@@ -14,11 +17,11 @@ import {
 
 import PageTitle from "../components/common/PageTitle";
 
-class BlogPosts extends React.Component {
-  constructor(props) {
-    super(props);
+import { useHistory } from 'react-router-dom';
 
-    this.state = {
+let ps = null;
+
+export default function BlogPosts(props) {
       // // First list of posts.
       // PostsListOne: [
       //   {
@@ -96,33 +99,7 @@ class BlogPosts extends React.Component {
       // ],
 
       // Third list of posts.
-      PostsListThree: [
-        {
-          author: "John James",
-          authorAvatar: require("../images/avatars/1.jpg"),
-          title: "Had denoting properly jointure which well books beyond",
-          body:
-            "In said to of poor full be post face snug. Introduced imprudence see say unpleasing devonshire acceptance son. Exeter longer wisdom work...",
-          date: "29 February 2019"
-        },
-        {
-          author: "John James",
-          authorAvatar: require("../images/avatars/2.jpg"),
-          title: "Husbands ask repeated resolved but laughter debating",
-          body:
-            "It abode words began enjoy years no do ﻿no. Tried spoil as heart visit blush or. Boy possible blessing sensible set but margaret interest. Off tears...",
-          date: "29 February 2019"
-        },
-        {
-          author: "John James",
-          authorAvatar: require("../images/avatars/3.jpg"),
-          title:
-            "Instantly gentleman contained belonging exquisite now direction",
-          body:
-            "West room at sent if year. Numerous indulged distance old law you. Total state as merit court green decay he. Steepest merit checking railway...",
-          date: "29 February 2019"
-        }
-      ],
+      
 
       // // Fourth list of posts.
       // PostsListFour: [
@@ -171,18 +148,33 @@ class BlogPosts extends React.Component {
       //     date: "29 February 2019"
       //   }
       // ]
-    };
-  }
+   
+  
 
-  render() {
-    const {
-      // PostsListOne,
-      // PostsListTwo,
-      PostsListThree,
-      // PostsListFour
-    } = this.state;
+ 
+  	let { id } = useParams();
+  	const [ postInfo, setPostInfo ] = useState({});
+  	const [ PostsListThree, setPostsListThree ] = useState({});
+  	useEffect(
+    () => {
+      async function fetchData() {
+        const request = await axios.get(`posts`);
+        console.log('REQUESt');
+        console.log(request.data[0]);
+        setPostInfo(request.data[0]);
+
+        return request;
+      }
+
+      fetchData();
+    },
+    [id ]
+  );
+  	{console.log(postInfo)}
+    
 
     return (
+    	<React.Fragment>
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
@@ -191,29 +183,30 @@ class BlogPosts extends React.Component {
 
        
 
-        {/* Third Row of Posts */}
+       / Third Row of Posts 
         <Row>
-          {PostsListThree.map((post, idx) => (
-            <Col lg="4" key={idx}>
+          
+            <Col lg="4" >
+            {console.log(postInfo)}
               <Card small className="card-post mb-4">
                 <CardBody>
-                  <h5 className="card-title">{post.title}</h5>
-                  <p className="card-text text-muted">{post.body}</p>
+                  <h5 className="card-title">{postInfo.content}</h5>
+                  <p className="card-text text-muted">{postInfo.content}</p>
                 </CardBody>
                 <CardFooter className="border-top d-flex">
                   <div className="card-post__author d-flex">
                     <a
                       href="#"
                       className="card-post__author-avatar card-post__author-avatar--small"
-                      style={{ backgroundImage: `url('${post.authorAvatar}')` }}
+                      //style={{ backgroundImage: `url('${post.authorAvatar}')` }}
                     >
                       Written by James Khan
                     </a>
                     <div className="d-flex flex-column justify-content-center ml-3">
                       <span className="card-post__author-name">
-                        {post.author}
+                        {postInfo.post_id}
                       </span>
-                      <small className="text-muted">{post.date}</small>
+                      <small className="text-muted">{postInfo.date_posted}</small>
                     </div>
                   </div>
                   <div className="my-auto ml-auto">
@@ -224,13 +217,14 @@ class BlogPosts extends React.Component {
                 </CardFooter>
               </Card>
             </Col>
-          ))}
+          ))
         </Row>
 
       
       </Container>
+      </React.Fragment>
     );
   }
-}
 
-export default BlogPosts;
+
+
