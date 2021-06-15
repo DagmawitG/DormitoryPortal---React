@@ -1,52 +1,3 @@
-// import React from "react";
-// import {
-//   Container,
-//    Row,
-//     Col, 
-//   Card,
-//   CardHeader,
-//   Button,
-//   CardBody,
-//   Form,
-//   FormGroup,
-//   FormInput
-// } from "shards-react";
-
-// const Login = () => (
-//    <Container fluid className="main-content-container px-4">
-//      <Row >
-//       <Col sm ={{ size : 8 , order : 2 , offset: 2}} md = {{ size : 10 , order : 1 , offset:1 }}>
-    
-//   <Card small className="mb-4 pt-3">
-//     <CardHeader className="border-bottom text-center">
-//      Login page
-//     </CardHeader>
-//     <CardBody>
-
-   
-//     <Form>
-//       <FormGroup>
-//         <label htmlFor="#username">Id_Number</label>
-//         <FormInput id="#username" placeholder="idNumber" />
-//       </FormGroup>
-//       <FormGroup>
-//         <label htmlFor="#password">Password</label>
-//         <FormInput type="password" id="#password" placeholder="Password" />
-//       </FormGroup>
-//     </Form>
-//     <Button type="submit">LogIn</Button>
-
-//     </CardBody>
-//   </Card>
-//   </Col>
-//   </Row>
-//   </Container>
-// );
-
-
-
-// export default Login;
-
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -61,7 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import image from '../../images/avatars/image.webp';
+import Image from '../../images/avatars/AddisAbaba.jpg';
 
 function Copyright() {
   return (
@@ -79,7 +30,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: `url(${ Image })`,
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -87,14 +38,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
     // filter: 'blur(3px)',
   },
-  // image: {
-  //   backgroundImage: 'url(https://source.unsplash.com/random)',
-  //   backgroundRepeat: 'no-repeat',
-  //   backgroundColor:
-  //     theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-  //   backgroundSize: 'cover',
-  //   backgroundPosition: 'center',
-  // },
   paper: {
     margin: theme.spacing(8, 4),
     display: 'flex',
@@ -118,9 +61,10 @@ export default function Login() {
   const classes = useStyles();
 
   return (
-    <Grid container component="main" className={classes.root} >
+    <Grid container component="main" className={classes.root}>
       <CssBaseline />
       {/* className={classes.image} */}
+      <Grid item xs={11} sm={7} md={4}/>
       <Grid item xs={12} sm={8} md={5}  component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>

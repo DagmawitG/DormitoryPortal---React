@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {
   Card,
   CardHeader,
+  Container,
   ListGroup,
   ListGroupItem
 } from "shards-react";
@@ -10,6 +11,7 @@ import NormalButtons from "../components-overview/NormalButtons";
 
 
 const Sent_request = ({ sentRequest}) => (
+  <Container fluid>
     <Card small className="mb-4 pt-3">
     <CardHeader className="border-bottom text-center">
       <div className="mb-3 mx-auto">
@@ -17,7 +19,7 @@ const Sent_request = ({ sentRequest}) => (
           className="rounded-circle"
           src={sentRequest.avatar}
           alt={sentRequest.name}
-          width="110"
+          width="80"
         />
       </div>
       <h4 className="mb-0">{sentRequest.name}</h4>
@@ -39,6 +41,7 @@ const Sent_request = ({ sentRequest}) => (
         </ListGroupItem>
     </ListGroup>
   </Card>  
+  </Container>
 );
 
 Sent_request.prototype = {
