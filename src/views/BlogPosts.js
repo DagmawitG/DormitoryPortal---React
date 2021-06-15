@@ -161,6 +161,7 @@ export default function BlogPosts(props) {
         console.log('REQUESt');
         console.log(request.data[0]);
         setPostInfo(request.data[0]);
+        // setPostsListThree(request.data[1]);
 
         return request;
       }
@@ -218,6 +219,43 @@ export default function BlogPosts(props) {
             </Col>
           ))
         </Row>
+
+
+        {/* <Row>
+          
+          <Col lg="4" >
+          {console.log(PostsListThree)}
+            <Card small className="card-post mb-4">
+              <CardBody>
+                <h5 className="card-title">{PostsListThree.content}</h5>
+                <p className="card-text text-muted">{PostsListThree.content}</p>
+              </CardBody>
+              <CardFooter className="border-top d-flex">
+                <div className="card-post__author d-flex">
+                  <a
+                    href="#"
+                    className="card-post__author-avatar card-post__author-avatar--small"
+                    //style={{ backgroundImage: `url('${post.authorAvatar}')` }}
+                  >
+                    Written by James Khan
+                  </a>
+                  <div className="d-flex flex-column justify-content-center ml-3">
+                    <span className="card-post__author-name">
+                      {postInfo.post_id}
+                    </span>
+                    <small className="text-muted">{PostsListThree.date_posted}</small>
+                  </div>
+                </div>
+                <div className="my-auto ml-auto">
+                  <Button size="sm" theme="white">
+                    <i className="far fa-bookmark mr-1" /> Bookmark
+                  </Button>
+                </div>
+              </CardFooter>
+            </Card>
+          </Col>
+        ))
+      </Row> */}
 
       
       </Container>

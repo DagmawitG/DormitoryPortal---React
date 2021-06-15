@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Card,
   CardHeader,
   Alert
 } from "shards-react";
+import axios from '../axios';
 
 import CompleteFormExample from "../components/components-overview/CompleteFormExample";
 
-const ComponentsOverview = () => (
+function ComponentsOverview (){
+  const [ formValues, setFormValues ] = useState({});
+
+  const handleChange = (e) => {
+		const { name, value } = e.target;
+
+		setFormValues({ ...formValues, [name]: value });
+	};
+
+  const handleSubmit = (e) => {
+		e.preventDefault();
+		setFormValues({});
+		let instructorId = localStorage.getItem('user');
+		axios
+			.post('RequestAPI', {
+				stu: formValues.title,
+				description: formValues.description,
+				instructorId: instructorId
+			})
+			// .then((res) => {
+			// 	history.push('/instructorhome');
+			// });
+	};
+  
+  return(
   <div>
     <Container fluid className="px-0">
       <Alert className="mb-0">
@@ -25,6 +50,7 @@ const ComponentsOverview = () => (
           </Card>
         
   </div>
-);
+  )
+}
 
 export default ComponentsOverview;
