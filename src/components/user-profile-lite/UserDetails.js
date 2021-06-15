@@ -3,10 +3,6 @@ import PropTypes from "prop-types";
 import {
   Card,
   CardHeader,
-  Button,
-  ListGroup,
-  ListGroupItem,
-  Progress
 } from "shards-react";
 
 const UserDetails = ({ userDetails }) => (
@@ -27,29 +23,6 @@ const UserDetails = ({ userDetails }) => (
         <i className="material-icons mr-1">person_add</i> Follow
       </Button> */}
     </CardHeader>
-    {/* <ListGroup flush>
-      <ListGroupItem className="px-4">
-        <div className="progress-wrapper">
-          <strong className="text-muted d-block mb-2">
-            {userDetails.performanceReportTitle}
-          </strong>
-          <Progress
-            className="progress-sm"
-            value={userDetails.performanceReportValue}
-          >
-            <span className="progress-value">
-              {userDetails.performanceReportValue}%
-            </span>
-          </Progress>
-        </div>
-      </ListGroupItem>
-      <ListGroupItem className="p-4">
-        <strong className="text-muted d-block mb-2">
-          {userDetails.metaTitle}
-        </strong>
-        <span>{userDetails.metaValue}</span>
-      </ListGroupItem>
-    </ListGroup> */}
   </Card>
 );
 
@@ -66,11 +39,6 @@ UserDetails.defaultProps = {
     avatar: require("./../../images/avatars/0.jpg"),
     Department: "Software 3rd year",
     ID_Number : "atr/005256/11"
-    // performanceReportTitle: "Workload",
-    // performanceReportValue: 74,
-    // metaTitle: "Description",
-    // metaValue:
-    //   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?"
   }
 };
 

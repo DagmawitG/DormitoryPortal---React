@@ -1,16 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  Container,
-  Row,
-  Col,
   Card,
   CardHeader,
-  CardBody,
   ListGroup,
-  ListGroupItem,
-  Form,
-  Alert
+  ListGroupItem
 } from "shards-react";
 import NormalButtons from "../components-overview/NormalButtons";
 
@@ -27,6 +21,7 @@ const Sent_request = ({ sentRequest}) => (
         />
       </div>
       <h4 className="mb-0">{sentRequest.name}</h4>
+      <span className="text-muted d-block mb-2">{sentRequest.Institution}</span>
       <span className="text-muted d-block mb-2">{sentRequest.Department}</span>
       <span className="text-muted d-block mb-2">{sentRequest.ID_Number}</span>
     </CardHeader>
@@ -56,6 +51,7 @@ Sent_request.defaultProps = {
         name: "Dagi ",
         avatar: require("./../../images/avatars/0.jpg"),
         Department: "Software 3rd year",
+        Institution: "AAIT",
         ID_Number : "atr/005256/11",
         metaTitle: "Description",
         metaValue:

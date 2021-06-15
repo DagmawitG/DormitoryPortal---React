@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   Container,
    Row,
@@ -7,9 +6,6 @@ import {
   Card,
   CardHeader,
   Button,
-  ListGroup,
-  ListGroupItem,
-  Progress,
   CardBody,
   Form,
   FormGroup,
@@ -18,6 +14,9 @@ import {
 
 const Login = () => (
    <Container fluid className="main-content-container px-4">
+     <Row >
+      <Col sm ={{ size : 8 , order : 2 , offset: 2}} md = {{ size : 10 , order : 1 , offset:1 }}>
+    
   <Card small className="mb-4 pt-3">
     <CardHeader className="border-bottom text-center">
      Login page
@@ -27,40 +26,20 @@ const Login = () => (
    
     <Form>
       <FormGroup>
-        <label htmlFor="#username">Username</label>
-        <FormInput id="#username" placeholder="Username" />
+        <label htmlFor="#username">Id_Number</label>
+        <FormInput id="#username" placeholder="idNumber" />
       </FormGroup>
       <FormGroup>
         <label htmlFor="#password">Password</label>
         <FormInput type="password" id="#password" placeholder="Password" />
       </FormGroup>
     </Form>
+    <Button type="submit">LogIn</Button>
 
     </CardBody>
-    {/* <ListGroup flush>
-      <ListGroupItem className="px-4">
-        <div className="progress-wrapper">
-          <strong className="text-muted d-block mb-2">
-            {userDetails.performanceReportTitle}
-          </strong>
-          <Progress
-            className="progress-sm"
-            value={userDetails.performanceReportValue}
-          >
-            <span className="progress-value">
-              {userDetails.performanceReportValue}%
-            </span>
-          </Progress>
-        </div>
-      </ListGroupItem>
-      <ListGroupItem className="p-4">
-        <strong className="text-muted d-block mb-2">
-          {userDetails.metaTitle}
-        </strong>
-        <span>{userDetails.metaValue}</span>
-      </ListGroupItem>
-    </ListGroup> */}
   </Card>
+  </Col>
+  </Row>
   </Container>
 );
 
