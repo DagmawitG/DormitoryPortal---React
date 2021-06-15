@@ -3,8 +3,7 @@ import { Container, Row, Col , Button } from "shards-react";
 
 import PageTitle from "../components/common/PageTitle";
 import Editor from "../components/add-new-post/Editor";
-import SidebarActions from "../components/add-new-post/SidebarActions";
-import SidebarCategories from "../components/add-new-post/SidebarCategories";
+
 
 const AddNewPost = () => (
   <Container fluid className="main-content-container px-4 pb-4">
@@ -21,11 +20,7 @@ const AddNewPost = () => (
       </Col>
       
 
-      {/* Sidebar Widgets */}
-      {/* <Col lg="3" md="12">
-        <SidebarActions />
-        <SidebarCategories />
-      </Col> */}
+
     </Row>
   </Container>
 );
