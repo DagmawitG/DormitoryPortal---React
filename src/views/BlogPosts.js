@@ -18,7 +18,6 @@ import PageTitle from "../components/common/PageTitle";
 
 import { useHistory } from 'react-router-dom';
 
-<<<<<<< HEAD
 let ps = null;
 
 export default function BlogPosts(props) {
@@ -97,14 +96,10 @@ export default function BlogPosts(props) {
       //     date: "29 February 2019"
       //   }
       // ],
-=======
-    this.state = {
->>>>>>> e51f00f4cf0f82a635a3db7bd4b163671db7e024
 
       // Third list of posts.
       
 
-<<<<<<< HEAD
       // // Fourth list of posts.
       // PostsListFour: [
       //   {
@@ -166,10 +161,6 @@ export default function BlogPosts(props) {
         console.log('REQUESt');
         console.log(request.data[0]);
         setPostInfo(request.data[0]);
-=======
-    };
-  }
->>>>>>> e51f00f4cf0f82a635a3db7bd4b163671db7e024
 
         return request;
       }
