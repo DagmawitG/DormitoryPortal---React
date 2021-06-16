@@ -11,6 +11,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
+import { Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Image from '../../images/avatars/AddisAbaba.jpg';
 
@@ -36,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     // filter: 'blur(3px)',
   },
   paper: {
@@ -55,17 +59,24 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  width: {
+    margin: theme.spacing(0,45),
+    
+  },
 }));
 
 export default function Login() {
   const classes = useStyles();
 
   return (
-    <Grid container component="main" className={classes.root}>
-      <CssBaseline />
-      {/* className={classes.image} */}
-      <Grid item xs={11} sm={7} md={4}/>
-      <Grid item xs={12} sm={8} md={5}  component={Paper} elevation={6} square>
+    <div >
+      
+      <Card>
+      <Grid component="main" className={classes.root}>
+        <CssBaseline />
+      <Grid item xs sm={2} md className={classes.width}/>
+      <Grid item xs={2} sm={3} md={4} className={classes.width} component={Paper} spacing={5} elevation={6} square>
+      
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
@@ -121,7 +132,11 @@ export default function Login() {
             </Box>
           </form>
         </div>
+        
       </Grid>
+      <Grid item xs sm md className={classes.width}/>
     </Grid>
+    </Card>
+    </div>
   );
 }
