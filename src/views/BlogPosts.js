@@ -161,7 +161,7 @@ export default function BlogPosts(props) {
         console.log('REQUESt');
         console.log(request.data[0]);
         setPostInfo(request.data[0]);
-        // setPostsListThree(request.data[1]);
+        setPostsListThree(request.data[1]);
 
         return request;
       }
@@ -221,7 +221,7 @@ export default function BlogPosts(props) {
         </Row>
 
 
-        {/* <Row>
+        <Row>
           
           <Col lg="4" >
           {console.log(PostsListThree)}
@@ -255,7 +255,7 @@ export default function BlogPosts(props) {
             </Card>
           </Col>
         ))
-      </Row> */}
+      </Row>
 
       
       </Container>
