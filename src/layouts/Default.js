@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
 import { makeStyles } from '@material-ui/core/styles';
-import Image from '../images/avatars/AddisAbaba.jpg';
+import Image from '../images/avatars/very-light.jpg';
 
 import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
 import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    
     // filter: 'blur(3px)',
   },
 }));

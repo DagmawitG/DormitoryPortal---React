@@ -36,7 +36,7 @@ UserDetails.propTypes = {
 UserDetails.defaultProps = {
   userDetails: {
     name: "Dagi ",
-    avatar: require("./../../images/avatars/0.jpg"),
+    avatar: require("./../../images/avatars/1.png"),
     Department: "Software 3rd year",
     ID_Number : "atr/005256/11"
   }
