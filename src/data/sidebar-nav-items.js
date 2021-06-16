@@ -1,6 +1,11 @@
 export default function() {
   return [
     {
+      title: "User Profile",
+      htmlBefore: '<i class="material-icons">person</i>',
+      to: "/user-profile-lite",
+    },
+    {
       title: "Blog Posts",
       htmlBefore: '<i class="material-icons">vertical_split</i>',
       to: "/blog-posts",
@@ -11,9 +16,9 @@ export default function() {
       to: "/components-overview",
     },
     {
-      title: "User Profile",
+      title: "User Profile admin",
       htmlBefore: '<i class="material-icons">person</i>',
-      to: "/user-profile-lite",
+      to: "/user-profile-lite-admin",
     },
     {
       title: "Sent Requests",
@@ -31,11 +36,6 @@ export default function() {
       htmlBefore: '<i class="material-icons">table_chart</i>',
       to: "/tables",
     },    
-    {
-      title: "User Profile admin",
-      htmlBefore: '<i class="material-icons">person</i>',
-      to: "/user-profile-lite",
-    },
     // {
     //   title: "Errors",
     //   htmlBefore: '<i class="material-icons">error</i>',

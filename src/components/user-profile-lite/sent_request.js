@@ -1,21 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  Container,
-  Row,
-  Col,
   Card,
   CardHeader,
-  CardBody,
+  Container,
   ListGroup,
-  ListGroupItem,
-  Form,
-  Alert
+  ListGroupItem
 } from "shards-react";
 import NormalButtons from "../components-overview/NormalButtons";
 
 
 const Sent_request = ({ sentRequest}) => (
+  <Container fluid>
     <Card small className="mb-4 pt-3">
     <CardHeader className="border-bottom text-center">
       <div className="mb-3 mx-auto">
@@ -23,10 +19,11 @@ const Sent_request = ({ sentRequest}) => (
           className="rounded-circle"
           src={sentRequest.avatar}
           alt={sentRequest.name}
-          width="110"
+          width="80"
         />
       </div>
       <h4 className="mb-0">{sentRequest.name}</h4>
+      <span className="text-muted d-block mb-2">{sentRequest.Institution}</span>
       <span className="text-muted d-block mb-2">{sentRequest.Department}</span>
       <span className="text-muted d-block mb-2">{sentRequest.ID_Number}</span>
     </CardHeader>
@@ -44,6 +41,7 @@ const Sent_request = ({ sentRequest}) => (
         </ListGroupItem>
     </ListGroup>
   </Card>  
+  </Container>
 );
 
 Sent_request.prototype = {
@@ -56,6 +54,7 @@ Sent_request.defaultProps = {
         name: "Dagi ",
         avatar: require("./../../images/avatars/0.jpg"),
         Department: "Software 3rd year",
+        Institution: "AAIT",
         ID_Number : "atr/005256/11",
         metaTitle: "Description",
         metaValue:

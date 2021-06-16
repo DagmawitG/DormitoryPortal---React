@@ -1,13 +1,32 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
+import { makeStyles } from '@material-ui/core/styles';
+import Image from '../images/avatars/AddisAbaba.jpg';
 
 import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
 import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
 import MainFooter from "../components/layout/MainFooter";
 
-const DefaultLayout = ({ children, noNavbar, noFooter }) => (
-  <Container fluid>
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100vh',
+    backgroundImage: `url(${ Image })`,
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    // filter: 'blur(3px)',
+  },
+}));
+
+
+const DefaultLayout = ({ children, noNavbar, noFooter }) => {
+  const classes = useStyles();
+
+  return(
+  <Container fluid className={classes.root}>
     <Row>
       <MainSidebar />
       <Col
@@ -23,7 +42,8 @@ const DefaultLayout = ({ children, noNavbar, noFooter }) => (
       </Col>
     </Row>
   </Container>
-);
+  )
+};
 
 DefaultLayout.propTypes = {
   /**

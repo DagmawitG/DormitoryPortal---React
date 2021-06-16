@@ -7,6 +7,7 @@ import { DefaultLayout } from "./layouts";
 // Route Views
 import BlogOverview from "./views/BlogOverview";
 import UserProfileLite from "./views/UserProfileLite";
+import UserProfileLite_admin from "./views/UserProfileLite_admin";
 import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";
 import ComponentsOverview from "./views/ComponentsOverview";
@@ -14,6 +15,7 @@ import Tables from "./views/Tables";
 import BlogPosts from "./views/BlogPosts";
 import Sent_requests from "./views/Sent_request";
 import Login from "./components/user-profile-lite/Login";
+import LoginLayout from "./layouts/log_in";
 
 export default [
   {
@@ -33,13 +35,18 @@ export default [
     component: UserProfileLite
   },
   {
+    path: "/user-profile-lite-admin",
+    layout: DefaultLayout,
+    component: UserProfileLite_admin
+  },
+  {
     path: "/Sent_request",
     layout: DefaultLayout,
     component: Sent_requests
   },
   {
     path: "/login",
-    layout: DefaultLayout,
+    layout: LoginLayout,
     component: Login
   },
   {

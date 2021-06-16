@@ -39,27 +39,19 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2018 DesignRevision",
+  copyright: "Copyright © 2021 Dorimtory Portal",
   menuItems: [
     {
       title: "Home",
-      to: "#"
+      to: "/user-profile-lite"
     },
     {
-      title: "Services",
-      to: "#"
-    },
-    {
-      title: "About",
-      to: "#"
-    },
-    {
-      title: "Products",
-      to: "#"
+      title: "Request",
+      to: "/components-overview"
     },
     {
       title: "Blog",
-      to: "#"
+      to: "/blog-posts"
     }
   ]
 };
