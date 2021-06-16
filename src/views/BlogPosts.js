@@ -19,7 +19,7 @@ class BlogPosts extends React.Component {
 
     this.state = {
 
-      // Third list of posts.
+   
       PostsListThree: [
         {
           author: "John James",
