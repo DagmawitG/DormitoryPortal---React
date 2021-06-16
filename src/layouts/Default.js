@@ -11,6 +11,11 @@ import MainFooter from "../components/layout/MainFooter";
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
+    fontFamily: theme.typography.fontFamily = "Segoe UI",
+    fontSize: theme.typography.fontSize='1.2rem',
+    '@media (min-width:600px)': {
+      fontSize: '1rem',
+    },
     backgroundImage: `url(${ Image })`,
     backgroundRepeat: 'no-repeat',
     backgroundColor:

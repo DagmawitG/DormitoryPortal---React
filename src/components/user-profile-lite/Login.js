@@ -9,7 +9,6 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -49,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(2),
-    // backgroundColor: theme.palette.secondary.main,
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -78,10 +77,17 @@ export default function Login() {
       <Grid item xs={2} sm={3} md={4} className={classes.width} component={Paper} spacing={5} elevation={6} square>
       
         <div className={classes.paper}>
-          <Avatar className={classes.avatar} alt="Addis Ababa University" src="../../images/avatars/Addis-Ababa-University.jpg-"/>
           <Typography component="h1" variant="h5">
             Welcome To Addis Ababa University
           </Typography>
+          <Avatar className={classes.avatar} >
+            <img
+                style={{ maxWidth: "35px" }}
+                src={require("../../images/avatars/Addis-Ababa-University.jpg")}
+                alt="Addis Ababa University"
+              />
+          </Avatar>
+          
           <Typography component="h1" variant="h5">
             Log In
           </Typography>

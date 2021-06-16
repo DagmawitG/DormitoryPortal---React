@@ -36,11 +36,11 @@ class SidebarMainNavbar extends React.Component {
                 // className="d-inline-block align-top mr-1"
                 style={{ maxWidth: "35px" }}
                 src={require("../../../images/p.jpg")}
-                alt="Shards Dashboard"
+                alt="Dormitory Portal"
               />
               {!hideLogoText && (
                 <span className="d-none d-md-inline ml-1">
-                 dormitary portal
+                 Dormitory Portal
                 </span>
               )}
             </div>
