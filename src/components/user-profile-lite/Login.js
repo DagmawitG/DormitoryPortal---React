@@ -49,8 +49,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    margin: theme.spacing(2),
+    // backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -78,9 +78,10 @@ export default function Login() {
       <Grid item xs={2} sm={3} md={4} className={classes.width} component={Paper} spacing={5} elevation={6} square>
       
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <Avatar className={classes.avatar} alt="Addis Ababa University" src="../../images/avatars/Addis-Ababa-University.jpg-"/>
+          <Typography component="h1" variant="h5">
+            Welcome To Addis Ababa University
+          </Typography>
           <Typography component="h1" variant="h5">
             Log In
           </Typography>

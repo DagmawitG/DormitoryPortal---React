@@ -10,12 +10,12 @@ const Sentrequest = () => (
       <PageTitle title="Sent Requests" subtitle="Overview" md="12" className="ml-sm-auto mr-sm-auto" />
     </Row>
     <Row >
-      <Col sm ={{ size : 6 , order : 3 , offset: 3}}>
+      <Col sm ={{ size : 8 , order : 2 , offset: 2}}>
         <Sent_request/>
       </Col>
     </Row>
     <Row >
-      <Col sm ={{ size : 6 , order : 3 , offset: 3}}>
+      <Col sm ={{ size : 8 , order : 2 , offset: 2}}>
         <Sent_request/>
       </Col>
     </Row>

@@ -19,7 +19,7 @@ const LoginLayout = ({ children, noFooter }) => (
       >
         {/* {!noNavbar && <MainNavbar />} */}
         {children}
-        {!noFooter && <MainFooter />}
+        {/* {!noFooter && <MainFooter />} */}
       </Col>
     </Row>
   </Container>

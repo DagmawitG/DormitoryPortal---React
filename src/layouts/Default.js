@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col } from "shards-react";
 import { makeStyles } from '@material-ui/core/styles';
-import Image from '../images/avatars/light-sky-blue.jpg';
+import Image from '../images/avatars/very-light.jpg';
 
 import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
 import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
