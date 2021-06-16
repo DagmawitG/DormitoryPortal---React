@@ -4,7 +4,7 @@ import { Container, Row, Col } from "shards-react";
 
 // import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
 // import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
-import MainFooter from "../components/layout/MainFooter";
+// import MainFooter from "../components/layout/MainFooter";
 
 const LoginLayout = ({ children, noFooter }) => (
   <Container fluid>
@@ -17,9 +17,7 @@ const LoginLayout = ({ children, noFooter }) => (
         sm="12"
         tag="main"
       >
-        {/* {!noNavbar && <MainNavbar />} */}
         {children}
-        {!noFooter && <MainFooter />}
       </Col>
     </Row>
   </Container>

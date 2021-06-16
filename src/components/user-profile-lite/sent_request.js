@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-
 import {
   Card,
   CardHeader,
+  Container,
   ListGroup,
   ListGroupItem
 } from "shards-react";
@@ -66,7 +67,8 @@ export default function Sent_request(props){
         </ListGroupItem>
     </ListGroup>
   </Card>  
-);
+  
+)
     }
 
 // Sent_request.prototype = {

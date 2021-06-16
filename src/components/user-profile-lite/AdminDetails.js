@@ -33,7 +33,7 @@ AdminDetails.propTypes = {
 AdminDetails.defaultProps = {
   adminDetails: {
     name: "Murad Abdella ",
-    avatar: require("./../../images/avatars/1.jpg"),
+    avatar: require("./../../images/avatars/1.png"),
     Department: "SITE",
     Employe_ID : "0023"
   }
