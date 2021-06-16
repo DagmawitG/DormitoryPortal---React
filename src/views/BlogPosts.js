@@ -190,7 +190,7 @@ export default function BlogPosts(props) {
             {console.log(postInfo)}
               <Card small className="card-post mb-4">
                 <CardBody>
-                  <h5 className="card-title">{postInfo.content}</h5>
+                  <h5 className="card-title">{postInfo.title}</h5>
                   <p className="card-text text-muted">{postInfo.content}</p>
                 </CardBody>
                 <CardFooter className="border-top d-flex">
@@ -227,7 +227,7 @@ export default function BlogPosts(props) {
           {console.log(PostsListThree)}
             <Card small className="card-post mb-4">
               <CardBody>
-                <h5 className="card-title">{PostsListThree.content}</h5>
+                <h5 className="card-title">{PostsListThree.title}</h5>
                 <p className="card-text text-muted">{PostsListThree.content}</p>
               </CardBody>
               <CardFooter className="border-top d-flex">
