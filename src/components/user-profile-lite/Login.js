@@ -93,10 +93,11 @@ export default function Login() {
         .then(res =>
         {
           console.log(res)
-          console.log(res.data)
+          console.log(res.data[0].token)
           // document.cookie = `token=${res.data.token};`
           localStorage.setItem('REACT_TOKEN_AUTH', res.data[0].token);
-          if (res.data.role === 'student') {
+
+          if (res.data[0].role === 'student') {
             localStorage.setItem('user_id', res.data.user_id);
             localStorage.setItem('role', 'student');
             
@@ -127,7 +128,7 @@ export default function Login() {
          
       </div>
       <div class="login-content">
-        <form action="index.html">
+        <form>
           
           <h2 class="title">Welcome To Addis Ababa University</h2>
               <Form initialValues={{}} onFinish={handleLogin}>

@@ -19,15 +19,15 @@ export default function Sent_request(props){
     let { id } = useParams();
   	const [ requestInfo, setrequestInfo ] = useState({});
     const [ requestInfot, setrequestInfot ] = useState({});
-
+  for(var a = 0; a<5; a++){
     useEffect(
       ()=>{
         async function fetchData() {
           const request = await axios.get(`requests`);
           console.log('REQUESt');
           console.log(request.data[0]);
-          setrequestInfo(request.data[0]);
-          setrequestInfot(request.data[1]);
+          setrequestInfo(request.data[a]);
+          // setrequestInfot(request.data[1]);
 
           return request;
       }
@@ -72,6 +72,7 @@ export default function Sent_request(props){
   
 )
     }
+  }
 
 // Sent_request.prototype = {
 
