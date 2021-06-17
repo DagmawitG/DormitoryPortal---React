@@ -92,23 +92,23 @@ export default function Login() {
         })
         .then(res =>
         {
-          console.log(res)
+          console.log(res.data[0])
           console.log(res.data[0].token)
           // document.cookie = `token=${res.data.token};`
           localStorage.setItem('REACT_TOKEN_AUTH', res.data[0].token);
 
           if (res.data[0].role === 'student') {
-            localStorage.setItem('user_id', res.data.user_id);
+            // localStorage.setItem('user_id', res.data.user_id);
             localStorage.setItem('role', 'student');
             
   
             history.push('/blog-posts');
           } else {
-            localStorage.setItem('user_id', res.data.user_id);
+            // localStorage.setItem('user_id', res.data.user_id);
   
             localStorage.setItem('role', 'admin');
             
-            history.push('/blog-posts');
+            history.push('/Sent_request');
           }
         })
         .catch(error => {
@@ -134,6 +134,7 @@ export default function Login() {
               <Form initialValues={{}} onFinish={handleLogin}>
               <Form.Item
                 name="user_id"
+                
                 rules={[{ required: true, message: "Please input your i" }]}
               >
                 <Input size="large" placeholder="I" />

@@ -149,7 +149,7 @@ export default function BlogPosts(props) {
       // ]
    
   
-
+      const token = localStorage.getItem('REACT_TOKEN_AUTH') || '';
  
   	let { id } = useParams();
   	const [ postInfo, setPostInfo ] = useState({});
@@ -157,7 +157,10 @@ export default function BlogPosts(props) {
   	useEffect(
     () => {
       async function fetchData() {
-        const request = await axios.get(`posts`);
+        const request = await axios.get(`posts`, {headers: {
+          Accept: 'application/json',
+          Authorization: `Bearer ${token}`
+        }});
         console.log('REQUESt');
         console.log(request.data[0]);
         setPostInfo(request.data[0]);
