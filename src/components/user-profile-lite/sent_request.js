@@ -18,6 +18,7 @@ export default function Sent_request(props){
 
     let { id } = useParams();
   	const [ requestInfo, setrequestInfo ] = useState({});
+    const [ requestInfot, setrequestInfot ] = useState({});
 
     useEffect(
       ()=>{
@@ -26,6 +27,7 @@ export default function Sent_request(props){
           console.log('REQUESt');
           console.log(request.data[0]);
           setrequestInfo(request.data[0]);
+          setrequestInfot(request.data[1]);
 
           return request;
       }
@@ -48,7 +50,7 @@ export default function Sent_request(props){
           width="110"
         />
       </div>
-      <h4 className="mb-0">{requestInfo.name}</h4>
+      <h4 className="mb-0">{requestInfo.firstname}</h4>
       <span className="text-muted d-block mb-2">{requestInfo.institution}</span>
       <span className="text-muted d-block mb-2">{requestInfo.department}</span>
       <span className="text-muted d-block mb-2">{requestInfo.student_id}</span>

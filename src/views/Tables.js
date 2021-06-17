@@ -15,7 +15,7 @@ const Tables = () => (
       <Col>
         <Card small className="mb-4">
           <CardHeader className="border-bottom">
-            <h6 className="m-0">Active Users</h6>
+            <h6 className="m-0">Assigned Students</h6>
           </CardHeader>
           <CardBody className="p-0 pb-3">
             <table className="table mb-0">
@@ -34,45 +34,67 @@ const Tables = () => (
                     ID_Number
                   </th>
                   <th scope="col" className="border-0">
+                    Department
+                  </th>
+                  <th scope="col" className="border-0">
+                    Year
+                  </th>
+                  <th scope="col" className="border-0">
                     Campus
                   </th>
                   <th scope="col" className="border-0">
-                    Department
+                    BlockNo
+                  </th>
+                  <th scope="col" className="border-0">
+                    DormNo
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td>Ali</td>
-                  <td>Kerry</td>
+                  <td>Dagmawit</td>
+                  <td>Getacchew</td>
                   <td>ATR/0019/07</td>
-                  <td>5 Kilo</td>
-                  <td>Civil</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Clark</td>
-                  <td>Angela</td>
-                  <td>ATR/0019/07</td>
-                  <td>5 Kilo</td>
-                  <td>Civil</td>
-                </tr>
-                <tr>
+                  <td>Software</td>
                   <td>3</td>
-                  <td>Jerry</td>
-                  <td>Nathan</td>
-                  <td>ATR/0019/07</td>
                   <td>5 Kilo</td>
-                  <td>Civil</td>
+                  <td>2</td>
+                  <td>1</td>
+                  
                 </tr>
                 <tr>
-                  <td>4</td>
-                  <td>Colt</td>
-                  <td>Angela</td>
-                  <td>ATR/0019/07</td>
+                <td>2</td>
+                  <td>Luhana</td>
+                  <td>Daniel</td>
+                  <td>ATR/0087/07</td>
+                  <td>Software</td>
+                  <td>3</td>
                   <td>5 Kilo</td>
-                  <td>Civil</td>
+                  <td>2</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                <td>1</td>
+                  <td>Mathewos</td>
+                  <td>Worku</td>
+                  <td>ATR/0789/07</td>
+                  <td>Software</td>
+                  <td>3</td>
+                  <td>5 Kilo</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                <td>1</td>
+                  <td>Mathewos</td>
+                  <td>Murad</td>
+                  <td>ATR/8547/07</td>
+                  <td>Software</td>
+                  <td>3</td>
+                  <td>5 Kilo</td>
+                  <td>1</td>
+                  <td>2</td>
                 </tr>
               </tbody>
             </table>

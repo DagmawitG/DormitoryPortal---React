@@ -24,7 +24,7 @@ class ComponentsOverview extends Component{
         super(props)
 
         this.state = {
-        requestedPerson_id: '1',
+        // requestedPerson_id: '1',
         students_id: '',
 		    firstname: '',
 		    lastname: '',
@@ -37,7 +37,7 @@ class ComponentsOverview extends Component{
         state: '',
         city: '',
         woreda: '10',
-        subcity: ''
+        sub_city: ''
         }
     }
 
@@ -68,7 +68,7 @@ class ComponentsOverview extends Component{
 
     render(){
   const { students_id, firstname, lastname, gender, email, institution, department,
-year, description, state, city, woreda, subcity } = this.state
+year, description, state, city, woreda, sub_city } = this.state
 
   
   
@@ -179,7 +179,7 @@ year, description, state, city, woreda, subcity } = this.state
               <Col md="3" className="form-group">
                 <label htmlFor="feInputZip">Subcity</label>
                 <FormInput id="feInputZip" name="subcity"
-                onChange={this.handleChange} value={subcity}/>
+                onChange={this.handleChange} value={sub_city}/>
               </Col>
               <Col md="3" className="form-group">
                 <label htmlFor="feInputZip">Woreda</label>

@@ -95,7 +95,7 @@ export default function Login() {
           console.log(res)
           console.log(res.data)
           // document.cookie = `token=${res.data.token};`
-          localStorage.setItem('REACT_TOKEN_AUTH', res.data.token);
+          localStorage.setItem('REACT_TOKEN_AUTH', res.data[0].token);
           if (res.data.role === 'student') {
             localStorage.setItem('user_id', res.data.user_id);
             localStorage.setItem('role', 'student');
@@ -107,7 +107,7 @@ export default function Login() {
   
             localStorage.setItem('role', 'admin');
             
-            history.push('Sent_request');
+            history.push('/blog-posts');
           }
         })
         .catch(error => {
