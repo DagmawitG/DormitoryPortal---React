@@ -1,10 +1,10 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -13,6 +13,12 @@ import Typography from '@material-ui/core/Typography';
 import { Card } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Image from '../../images/avatars/AddisAbaba.jpg';
+import axios from '../../axios';
+import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+// import {Form, FormInput  } from "shards-react";
+import { Form, Input, Button, Checkbox } from 'antd';
+
 
 function Copyright() {
   return (
@@ -66,84 +72,89 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
+  
+    // const [ values, setValues ] = useState({
+    //   user_id: '',
+    //   user_password: ''
+    // });
+    const history = useHistory();
+  
+    const handleLogin = (values) => {
+      console.log("login attempted");
+
+      //values.preventDefault();
+      console.log(values.user_id)
+  
+      axios
+        .post('login', {
+          user_id: values.user_id,
+          user_password: values.user_password
+        })
+        .then(res =>
+        {
+          console.log(res)
+          console.log(res.data)
+          // document.cookie = `token=${res.data.token};`
+          localStorage.setItem('REACT_TOKEN_AUTH', res.data.token);
+          if (res.data.role === 'student') {
+            localStorage.setItem('user_id', res.data.user_id);
+            localStorage.setItem('role', 'student');
+            
+  
+            history.push('/blog-posts');
+          } else {
+            localStorage.setItem('user_id', res.data.user_id);
+  
+            localStorage.setItem('role', 'admin');
+            
+            history.push('Sent_request');
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          
+        });
+    };
 
   return (
-    <div >
-      
-      <Card>
-      <Grid component="main" className={classes.root}>
-        <CssBaseline />
-      <Grid item xs sm={2} md className={classes.width}/>
-      <Grid item xs={2} sm={3} md={4} className={classes.width} component={Paper} spacing={5} elevation={6} square>
-      
-        <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Welcome To Addis Ababa University
-          </Typography>
-          <Avatar className={classes.avatar} >
-            <img
-                style={{ maxWidth: "35px" }}
-                src={require("../../images/avatars/Addis-Ababa-University.jpg")}
-                alt="Addis Ababa University"
-              />
-          </Avatar>
+    <>
+      {/* <img src={window.location.origin + '/wave.png'}/>      */}
+
+    <div class="container">
+      <div class="img">
+      <img src={window.location.origin + '../../images/avatars/Addis-Ababa-University.jpg'}/>     
+
+         
+      </div>
+      <div class="login-content">
+        <form action="index.html">
           
-          <Typography component="h1" variant="h5">
-            Log In
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="id"
-              label="Id Number"
-              name="id"
-              autoComplete="id"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Log In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-            </Grid>
-            <Box mt={5}>
-              <Copyright />
-            </Box>
-          </form>
-        </div>
-        
-      </Grid>
-      <Grid item xs sm md className={classes.width}/>
-    </Grid>
-    </Card>
-    </div>
+          <h2 class="title">Welcome To Addis Ababa University</h2>
+              <Form initialValues={{}} onFinish={handleLogin}>
+              <Form.Item
+                name="user_id"
+                rules={[{ required: true, message: "Please input your i" }]}
+              >
+                <Input size="large" placeholder="I" />
+              </Form.Item>
+
+              <Form.Item
+                name="user_password"
+                rules={[{ required: true, message: "Please input your password!" }]}
+              >
+                <Input.Password size="large" placeholder="Password" />
+              </Form.Item>
+
+              <Form.Item>
+              <input type="submit" class="btn" value="Login"/>
+
+              </Form.Item>
+            </Form>
+              </form>
+          </div>
+      </div>
+    
+
+    </>
   );
 }
