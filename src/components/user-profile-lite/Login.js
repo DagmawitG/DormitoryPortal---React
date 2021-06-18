@@ -92,12 +92,12 @@ export default function Login() {
         })
         .then(res =>
         {
-          console.log(res.data[0])
+          console.log(res.data[1])
           console.log(res.data[0].token)
           // document.cookie = `token=${res.data.token};`
           localStorage.setItem('REACT_TOKEN_AUTH', res.data[0].token);
 
-          if (res.data[0].role === 'student') {
+          if (res.data[1].role === 'student') {
             // localStorage.setItem('user_id', res.data.user_id);
             localStorage.setItem('role', 'student');
             
@@ -120,41 +120,86 @@ export default function Login() {
   return (
     <>
       {/* <img src={window.location.origin + '/wave.png'}/>      */}
-
-    <div class="container">
-      <div class="img">
+    <Card>
+    <Grid component="main" className={classes.root}>
+    <CssBaseline />
+    <Grid item xs={2} sm={3} md={4} className={classes.width} component={Paper} spacing={5} elevation={6} square>
+      {/* <div class="img">
       <img src={window.location.origin + '../../images/avatars/Addis-Ababa-University.jpg'}/>     
 
          
-      </div>
-      <div class="login-content">
-        <form>
+      </div> */}
+      <div className={classes.paper} >
+      <Typography component="h1" variant="h5">
+            Welcome To Addis Ababa University
+          </Typography>
+          <Avatar className={classes.avatar} >
+            <img
+                style={{ maxWidth: "35px" }}
+                src={require("../../images/avatars/Addis-Ababa-University.jpg")}
+                alt="Addis Ababa University"
+              />
+          </Avatar>
           
-          <h2 class="title">Welcome To Addis Ababa University</h2>
+          <Typography component="h1" variant="h5">
+            Log In
+          </Typography>
+        <form className={classes.form}>
+          
               <Form initialValues={{}} onFinish={handleLogin}>
               <Form.Item
                 name="user_id"
-                
                 rules={[{ required: true, message: "Please input your i" }]}
               >
-                <Input size="large" placeholder="I" />
+                <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="id"
+              label="Id Number"
+              name="id"
+              autoComplete="id"
+              autoFocus
+            />
               </Form.Item>
 
               <Form.Item
                 name="user_password"
                 rules={[{ required: true, message: "Please input your password!" }]}
               >
-                <Input.Password size="large" placeholder="Password" />
+                <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
               </Form.Item>
 
-              <Form.Item>
+              <Form.Item >
               <input type="submit" class="btn" value="Login"/>
-
               </Form.Item>
+              <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+            </Grid>
+            <Box mt={5}>
+              <Copyright />
+            </Box>
             </Form>
               </form>
           </div>
-      </div>
+          </Grid>
+      </Grid>
+      </Card>
     
 
     </>

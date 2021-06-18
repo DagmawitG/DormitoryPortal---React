@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from '../../axios';
-import PropTypes from "prop-types";
-import { BrowserRouter as Router, Route, Switch, useParams } from 'react-router-dom';
+
 
 import {
   Card,
@@ -11,56 +9,36 @@ import {
   ListGroupItem
 } from "shards-react";
 import NormalButtons from "../components-overview/NormalButtons";
-import Sentrequest from "../../views/Sent_request";
+// import Sentrequest from "../../views/Sent_request";
 
 
-export default function Sent_request(props){
+export default function Sent_request({requestinfo}){
 
-    let { id } = useParams();
-  	const [ requestInfo, setrequestInfo ] = useState({});
-    const [ requestInfot, setrequestInfot ] = useState({});
-  for(var a = 0; a<5; a++){
-    useEffect(
-      ()=>{
-        async function fetchData() {
-          const request = await axios.get(`requests`);
-          console.log('REQUESt');
-          console.log(request.data[0]);
-          setrequestInfo(request.data[a]);
-          // setrequestInfot(request.data[1]);
-
-          return request;
-      }
-      fetchData();
-    },
-    [id ]
-    );
-
-    {console.log(requestInfo)}
-
+    
     return(
-
+      
+      
     <Card small className="mb-4 pt-3">
     <CardHeader className="border-bottom text-center">
-      <div className="mb-3 mx-auto">
+      {/* <div className="mb-3 mx-auto">
         <img
           className="rounded-circle"
-          // src={requestInfo.name}
-          alt={requestInfo.name}
+          // src={requestinfo.name}
+          alt={requestinfo.name}
           width="110"
         />
-      </div>
-      <h4 className="mb-0">{requestInfo.firstname}</h4>
-      <span className="text-muted d-block mb-2">{requestInfo.institution}</span>
-      <span className="text-muted d-block mb-2">{requestInfo.department}</span>
-      <span className="text-muted d-block mb-2">{requestInfo.student_id}</span>
+      </div> */}
+      <h4 className="mb-0">{requestinfo[0] ? requestinfo[0].firstname : '-'}</h4>
+      <span className="text-muted d-block mb-2">{requestinfo[0] ? requestinfo[0].institution : '-'}</span>
+      <span className="text-muted d-block mb-2">{requestinfo[0] ? requestinfo[0].department : '-'}</span>
+      <span className="text-muted d-block mb-2">{requestinfo[0] ? requestinfo[0].student_id : '-'}</span>
     </CardHeader>
-    <ListGroup flush>
+    <ListGroup>
         <ListGroupItem className="p-4">
             <strong className="text-muted d-block mb-2">
                     Description
                 </strong>
-            <span>{requestInfo.description}</span>
+            <span>{requestinfo[0] ? requestinfo[0].description : '-'}</span>
         </ListGroupItem>
         <ListGroupItem className="px-4">
             <span className="progress-value">
@@ -69,10 +47,10 @@ export default function Sent_request(props){
         </ListGroupItem>
     </ListGroup>
   </Card>  
-  
+      
 )
     }
-  }
+  
 
 // Sent_request.prototype = {
 
