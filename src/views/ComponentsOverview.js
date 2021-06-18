@@ -51,17 +51,20 @@ class ComponentsOverview extends Component{
   handleSubmit = (e) => {
 		e.preventDefault();
         console.log(this.state);
+        
 		// setFormValues({});
 		//let instructorId = localStorage.getItem('user');
 		
     axios.post('requests', this.state)
         .then(response => {
           console.log(response)
+          alert("Form Succesfully Submited")
         this.setState({
           data: response.data
         })})
         .catch(error => {
           console.log(error)
+          alert("Form Error")
         })
         
 	  }
