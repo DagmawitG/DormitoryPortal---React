@@ -152,8 +152,8 @@ export default function BlogPosts(props) {
       const token = localStorage.getItem('REACT_TOKEN_AUTH') || '';
  
   	let { id } = useParams();
-  	const [ postInfo, setPostInfo ] = useState({});
-  	const [ PostsListThree, setPostsListThree ] = useState({});
+  	const [ postInfo, setPostInfo ] = useState([]);
+  	// const [ PostsListThree, setPostsListThree ] = useState({});
   	useEffect(
     () => {
       async function fetchData() {
@@ -162,9 +162,9 @@ export default function BlogPosts(props) {
           Authorization: `Bearer ${token}`
         }});
         console.log('REQUESt');
-        console.log(request.data[0]);
-        setPostInfo(request.data[0]);
-        setPostsListThree(request.data[1]);
+        console.log(request.data);
+        setPostInfo(request.data);
+        // setPostsListThree(request.data[1]);
 
         return request;
       }
@@ -185,31 +185,25 @@ export default function BlogPosts(props) {
         </Row>
 
        
-
-       / Third Row of Posts 
+        {postInfo.map((i) =>(
+        
         <Row>
           
             <Col lg="4" >
-            {console.log(postInfo)}
+            {/* {console.log(postInfo)} */}
               <Card small className="card-post mb-4">
                 <CardBody>
-                  <h5 className="card-title">{postInfo.title}</h5>
-                  <p className="card-text text-muted">{postInfo.content}</p>
+                  <h5 className="card-title">{postInfo ? i.title : '-'}</h5>
+                  <p className="card-text text-muted">{postInfo ? i.content : '-'}</p>
                 </CardBody>
                 <CardFooter className="border-top d-flex">
                   <div className="card-post__author d-flex">
-                    <a
-                      href="#"
-                      className="card-post__author-avatar card-post__author-avatar--small"
-                      //style={{ backgroundImage: `url('${post.authorAvatar}')` }}
-                    >
-                      Written by James Khan
-                    </a>
+                    
                     <div className="d-flex flex-column justify-content-center ml-3">
                       <span className="card-post__author-name">
                         {postInfo.post_id}
                       </span>
-                      <small className="text-muted">{postInfo.date_posted}</small>
+                      <small className="text-muted">{postInfo ? i.date_posted : '-'}</small>
                     </div>
                   </div>
                   <div className="my-auto ml-auto">
@@ -220,45 +214,13 @@ export default function BlogPosts(props) {
                 </CardFooter>
               </Card>
             </Col>
-          ))
-        </Row>
-
-
-        <Row>
           
-          <Col lg="4" >
-          {console.log(PostsListThree)}
-            <Card small className="card-post mb-4">
-              <CardBody>
-                <h5 className="card-title">{PostsListThree.title}</h5>
-                <p className="card-text text-muted">{PostsListThree.content}</p>
-              </CardBody>
-              <CardFooter className="border-top d-flex">
-                <div className="card-post__author d-flex">
-                  <a
-                    href="#"
-                    className="card-post__author-avatar card-post__author-avatar--small"
-                    //style={{ backgroundImage: `url('${post.authorAvatar}')` }}
-                  >
-                    Written by James Khan
-                  </a>
-                  <div className="d-flex flex-column justify-content-center ml-3">
-                    <span className="card-post__author-name">
-                      {postInfo.post_id}
-                    </span>
-                    <small className="text-muted">{PostsListThree.date_posted}</small>
-                  </div>
-                </div>
-                <div className="my-auto ml-auto">
-                  <Button size="sm" theme="white">
-                    <i className="far fa-bookmark mr-1" /> Bookmark
-                  </Button>
-                </div>
-              </CardFooter>
-            </Card>
-          </Col>
-        ))
-      </Row>
+        </Row>
+)
+)}
+
+
+        
 
       
       </Container>
